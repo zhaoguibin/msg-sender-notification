@@ -1,1 +1,1 @@
-利用 web-msg-sender和notification提醒
+利用 web-msg-sender和notification提醒例子
