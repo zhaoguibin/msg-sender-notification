@@ -44,8 +44,6 @@
 
 <script>
     $(document).ready(function () {
-
-
         // 连接服务端
         var socket = io('http://'+document.domain+':2120');
         // 连接后登录
@@ -54,18 +52,9 @@
         });
         // 后端推送来消息时
         socket.on('new_msg', function(msg){
-            // $('#content').html('收到消息：'+msg);
-            // $('.notification.sticky').notify();
 
-            //Notification弹窗提醒
-            // 先检查浏览器是否支持
-            if (!("Notification" in window)) {
-                alert("This browser does not support desktop notification");
-            }
-
-            // 检查用户是否同意接受通知
-            else if (Notification.permission === "granted") {
-                // If it's okay let's create a notification
+            function notifications(){
+                var time = 10;
                 var  notification = new Notification('测试提醒', {
                     "icon": 'https://static.oschina.net/uploads/user/1226/2452426_50.jpeg?t=1510532700000',
                     "body": msg
@@ -83,12 +72,28 @@
                 setTimeout(notification.onclose,time*1000);
             }
 
+
+            // $('#content').html('收到消息：'+msg);
+            // $('.notification.sticky').notify();
+
+            //Notification弹窗提醒
+            // 先检查浏览器是否支持
+            if (!("Notification" in window)) {
+                alert("This browser does not support desktop notification");
+            }
+
+            // 检查用户是否同意接受通知
+            else if (Notification.permission === "granted") {
+                // If it's okay let's create a notification
+                notifications();
+            }
+
             // 否则我们需要向用户获取权限
             else if (Notification.permission !== 'denied') {
                 Notification.requestPermission(function (permission) {
                     // 如果用户同意，就可以向他们发送通知
                     if (permission === "granted") {
-                        var notification = new Notification(msg);
+                        notifications();
                     }
                 });
             }

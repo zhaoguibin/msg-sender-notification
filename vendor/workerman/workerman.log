@@ -37,3 +37,6 @@
 2018-02-23 14:35:40 pid:1661 Workerman[start.php] has been stopped
 2018-02-23 14:35:40 pid:1684 Workerman[start.php] stop success
 2018-02-23 15:14:08 pid:1701 Workerman[start.php] start in DAEMON mode
+2018-02-23 17:50:43 pid:1703 Workerman[start.php] stopping ...
+2018-02-23 17:50:43 pid:1703 Workerman[start.php] has been stopped
+2018-02-24 08:40:51 pid:1633 Workerman[start.php] start in DAEMON mode
